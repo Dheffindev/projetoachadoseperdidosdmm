@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Achados e Perdidos – Escola Dom Marcelino</title>
+<title>Achados e Perdidos – Escola Dom Marcelino de Milão</title>
 <style>
 :root{--blue:#0b4fb3;--navy:#082a63;--yellow:#ffc928;--orange:#ff7a1a;--red:#d92d45;--green:#157f4a;--bg:#f3f7ff;--card:#fff;--text:#14213d;--muted:#566685;--line:#d5e1f6;--tint:#e6efff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1429;--card:#11203f;--text:#eaf1ff;--muted:#a3b6dc;--line:#243a6b;--tint:#17315f;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0a1429;--card:#11203f;--text:#eaf1ff;--muted:#a3b6dc;--line:#243a6b;--tint:#17315f;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme]){--bg:#060b17;--card:#0f1930;--text:#e8eefc;--muted:#9fb0d3;--line:#22345f;--tint:#16264a;--navy:#02060f;--blue:#2f6fed;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#060b17;--card:#0f1930;--text:#e8eefc;--muted:#9fb0d3;--line:#22345f;--tint:#16264a;--navy:#02060f;--blue:#2f6fed;color-scheme:dark}
+:root[data-theme="dark"] .hero{background:linear-gradient(160deg,#02060f,#0f2a66)}
 *,*::before,*::after{box-sizing:inherit}
 html{background:var(--navy)}
 @media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
@@ -66,12 +67,30 @@ footer{margin-top:40px;background:var(--navy);color:#cfe0ff;text-align:center;pa
 footer b{color:var(--yellow);font-size:1.05rem}
 #toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--navy);color:#fff;padding:13px 18px;border-radius:14px;max-width:90vw;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:.25s;border:2px solid var(--yellow)}
 #toast.show{opacity:1;transform:translate(-50%,0)}
+.theme-fab{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:10px;z-index:40;width:36px;height:36px;padding:0;border:0;border-radius:50%;font-size:1.05rem;line-height:1;cursor:pointer;background:rgba(255,255,255,.92);color:#082a63;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+:root[data-theme="dark"] .theme-fab{background:#16264a;color:#ffc928}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;text-align:left;max-width:1050px;margin:0 auto 18px}
+footer h4{margin:0 0 6px;color:var(--yellow);font-size:1rem}
+footer p{margin:0 0 4px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.18);padding-top:14px}
+.role{display:inline-block;margin-top:6px;padding:4px 12px;border-radius:99px;font-weight:800;background:rgba(255,255,255,.14)}
+.role.adm{background:var(--yellow);color:#3a2a00}
+footer .btn{margin-top:8px}
+.err{color:var(--red);font-weight:700;font-size:.9rem;min-height:1.2em;margin-top:6px}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(8,42,99,.65);display:grid;place-items:center;padding:16px}
+.modal[hidden]{display:none}
+.box{background:var(--card);color:var(--text);border-radius:18px;padding:22px;max-width:340px;width:100%;box-shadow:0 12px 40px rgba(0,0,0,.45);text-align:left}
+.box h3{margin:0 0 6px;color:var(--blue)}
+.box p{margin:0 0 12px;color:var(--muted);font-size:.92rem}
+.box .acts{margin-top:12px}
+:root[data-theme="dark"] .box h3{color:var(--yellow)}
 @media (max-width:600px){.form{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+<button id="themeBtn" class="theme-fab" onclick="toggleTheme()" aria-label="Alternar tema claro/escuro" title="Alternar tema">🌙</button>
 <header class="hero"><div class="wrap">
-  <span class="pill">🏫 Escola Dom Marcelino, Milão-MA</span>
+  <span class="pill">🏫 Escola Dom Marcelino de Milão · Barra do Corda (MA)</span>
   <h1>Achados e Perdidos</h1>
   <p>Perdeu alguma coisa? Achou algo sem dono? Veja a lista, cadastre o item e ajude cada coisa a voltar para casa.</p>
   <div class="cta">
@@ -123,7 +142,30 @@ footer b{color:var(--yellow);font-size:1.05rem}
   </section>
 </main>
 
-<footer><b>Escola Dom Marcelino</b><br>Milão-MA. Itens de exemplo são fictícios.</footer>
+<footer>
+  <div class="foot-grid">
+    <div><h4>🏫 Escola Dom Marcelino de Milão</h4><p>Sistema de Achados e Perdidos: ajudando cada objeto a voltar para o seu dono.</p></div>
+    <div><h4>📍 Localização</h4><p>Barra do Corda (MA)</p><p>Endereço: R. José Delfino Menezes</p></div>
+    <div><h4>📞 Secretaria</h4><p>Telefone: <i>[informar]</i></p><p>E-mail: <i>[informar]</i></p><p>Horário: <i>[informar]</i></p></div>
+    <div><h4>🧭 Retirada de itens</h4><p>Vá à secretaria, descreva o item e mostre algo que prove que é seu.</p></div>
+  </div>
+  <div class="foot-bottom">
+    <b>Escola Dom Marcelino de Milão</b> · Barra do Corda (MA) · © <span id="ano"></span><br>
+    Itens de exemplo são fictícios.<br>
+    <span class="role" id="roleInfo">👤 Nível: Usuário</span><br>
+    <button class="btn g" id="roleBtn2" onclick="roleAction()">🔐 Acesso administrador</button>
+  </div>
+</footer>
+<div id="dlg" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="dlg-t" onclick="if(event.target===this)closeLogin()">
+  <div class="box">
+    <h3 id="dlg-t">🔐 Acesso do administrador</h3>
+    <p>Digite a senha para virar administrador e liberar o acesso total (incluindo apagar itens).</p>
+    <label for="pw">Senha</label>
+    <input id="pw" type="password" autocomplete="off">
+    <div class="err" id="pwErr" role="alert"></div>
+    <div class="acts"><button class="btn b" type="button" onclick="login()">Entrar</button><button class="btn g" type="button" onclick="closeLogin()">Cancelar</button></div>
+  </div>
+</div>
 <div id="toast" role="status" aria-live="polite"></div>
 
 <script>
@@ -137,6 +179,14 @@ const SEED=[
 {id:5,s:"achado",n:"Estojo rosa com canetas",c:"material",d:"Seis canetas coloridas e uma régua.",l:"Refeitório",t:"2026-10-20",q:"Secretaria"},
 {id:6,s:"devolvido",n:"Carteirinha escolar",c:"doc",d:"Devolvida ao dono.",l:"Corredor",t:"2026-10-15",q:"Secretaria"}
 ];
+/* ===== PERMISSÕES =====
+   Níveis: "admin" (acesso total) e "user" (não pode apagar itens).
+   TROQUE a senha abaixo. Atenção: como o site roda só no navegador,
+   isso organiza o uso, mas não é segurança forte. */
+const ADMIN_PASS="admin123";
+let role="user";
+try{if(sessionStorage.getItem("ap-role")==="admin")role="admin"}catch(e){}
+const isAdmin=()=>role==="admin";
 let items=SEED.slice(),st="todos",cat="todos",q="",tipo="achado",armed=null,tt;
 try{const r=JSON.parse(localStorage.getItem("ap-itens"));if(Array.isArray(r))items=r}catch(e){}
 const save=()=>{try{localStorage.setItem("ap-itens",JSON.stringify(items))}catch(e){}};
@@ -153,15 +203,34 @@ function find(id){return items.find(x=>x.id==id)}
 function claim(id){toast(find(id).s=="achado"?"Vá à secretaria, descreva o item e mostre algo que prove que é seu. 🏫":"Obrigado! Avise a secretaria onde você viu o item. 🙌")}
 function done(id){find(id).s="devolvido";save();render();toast("Item marcado como devolvido. 🎉")}
 function del(id){
+  if(!isAdmin()){toast("Apenas o administrador pode remover itens. 🔒");return}
   if(armed!==id){armed=id;toast("Toque de novo na lixeira para remover o item. 🗑️");setTimeout(()=>{armed=null},3500);return}
   items=items.filter(x=>x.id!=id);armed=null;save();render();toast("Item removido.");
 }
 function card(i){
   const c=CATS[i.c]||CATS.outro;
   const acts=i.s=="devolvido"?"":`<div class="acts"><button class="btn b" onclick="claim(${i.id})">${i.s=="achado"?"🙋 É meu!":"👀 Eu vi!"}</button><button class="btn g" onclick="done(${i.id})">✅ Devolvido</button></div>`;
-  return `<article class="card ${i.s}"><div class="top"><span class="ico">${c[0]}</span><span class="badge">${LBL[i.s]}</span></div><h3>${esc(i.n)}</h3><p>${esc(i.d)}</p><ul><li>📍 ${esc(i.l)}</li><li>📅 ${fmt(i.t)}</li><li>👤 ${esc(i.q)}</li></ul>${acts}<button class="del" onclick="del(${i.id})" aria-label="Remover item" title="Remover">🗑️</button></article>`;
+  return `<article class="card ${i.s}"><div class="top"><span class="ico">${c[0]}</span><span class="badge">${LBL[i.s]}</span></div><h3>${esc(i.n)}</h3><p>${esc(i.d)}</p><ul><li>📍 ${esc(i.l)}</li><li>📅 ${fmt(i.t)}</li><li>👤 ${esc(i.q)}</li></ul>${acts}${isAdmin()?`<button class="del" onclick="del(${i.id})" aria-label="Remover item" title="Remover">🗑️</button>`:""}</article>`;
 }
+function roleUI(){
+  const a=isAdmin();
+  $("roleBtn2").textContent=a?"🚪 Sair":"🔐 Acesso administrador";
+  const r=$("roleInfo");r.textContent=a?"🛡️ Nível: Administrador (acesso total)":"👤 Nível: Usuário";r.classList.toggle("adm",a);
+}
+function setRole(r){role=r;try{sessionStorage.setItem("ap-role",r)}catch(e){}render()}
+function roleAction(){
+  if(isAdmin()){setRole("user");toast("Você saiu do modo administrador.")}
+  else{$("pw").value="";$("pwErr").textContent="";$("dlg").hidden=false;setTimeout(()=>$("pw").focus(),50)}
+}
+function closeLogin(){$("dlg").hidden=true}
+function login(){
+  if($("pw").value.trim()===ADMIN_PASS){closeLogin();setRole("admin");toast("Bem-vindo, administrador! 🛡️ Agora você pode apagar itens.")}
+  else{$("pwErr").textContent="Senha incorreta."}
+}
+$("pw").addEventListener("keydown",e=>{if(e.key==="Enter")login()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeLogin()});
 function render(){
+  roleUI();
   const n=s=>items.filter(i=>i.s==s).length;
   $("n-a").textContent=n("achado");$("n-p").textContent=n("perdido");$("n-d").textContent=n("devolvido");
   $("tabs").innerHTML=[["todos","📋 Todos"],["achado","🔍 Achados"],["perdido","😟 Perdidos"],["devolvido","✅ Devolvidos"]].map(([k,l])=>`<button class="chip${st==k?" on":""}" onclick="setSt('${k}')">${l}</button>`).join("");
@@ -178,6 +247,22 @@ $("form").addEventListener("submit",e=>{
   save();e.target.reset();$("i-data").value=hoje;setTipo("achado");st="todos";cat="todos";q="";$("busca").value="";
   render();toast("Item cadastrado! 🎉");go("itens");
 });
+/* ===== TEMA (claro/escuro) ===== */
+let theme=null;
+try{theme=localStorage.getItem("ap-theme")}catch(e){}
+if(theme!=="dark"&&theme!=="light")theme=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";
+function applyTheme(){
+  document.documentElement.dataset.theme=theme;
+  $("themeBtn").textContent=theme==="dark"?"☀️":"🌙";
+  $("themeBtn").title=theme==="dark"?"Mudar para o tema claro":"Mudar para o tema escuro";
+}
+function toggleTheme(){
+  theme=theme==="dark"?"light":"dark";
+  try{localStorage.setItem("ap-theme",theme)}catch(e){}
+  applyTheme();
+}
+applyTheme();
+$("ano").textContent=new Date().getFullYear();
 render();
 </script>
 </body>
